@@ -7,6 +7,19 @@
     buttons.
 */
 
+/*
+Marissa Ho
+INFO 343
+Lab 8
+*/
+
 function createCartView(config) {
-    
+    config.cartModel = config.model;
+	config.templateView = createCartItemView(config);
+
+	var view = createTemplateListView(config);
+	view.afterRender = function() {
+		this.totalPrice.html(this.model.getTotalPrice());
+	}; 
+    return view;            
 } //createCartView()
